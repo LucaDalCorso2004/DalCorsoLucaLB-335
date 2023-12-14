@@ -1,12 +1,12 @@
-import { View, Text, Button, StyleSheet } from 'react-native';
-export default function NoteEntry({ title, content }) {
+import { View, Text, Button, StyleSheet, TextInput } from 'react-native';
+export default function AnsichtEntry({ title, content }) {
     return (
         <View style={styles.container2}>
 
             <Text>Fach {title}</Text>
             <Text>Note: {content}</Text>
             <Button>Graph</Button>
-            {noten.map(t => <NoteEntry title={t.fach} content={t.note} />)}
+
         </View>
     );
 }

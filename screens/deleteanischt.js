@@ -1,5 +1,5 @@
-import { View, Text, Button, StyleSheet } from 'react-native';
-export default function NoteEntry({ title, content }) {
+import { View, Text, Button, StyleSheet, TextInput } from 'react-native';
+export default function deleteEntry({ title, content }) {
     return (
 
         <View style={styles.button}>
@@ -9,7 +9,7 @@ export default function NoteEntry({ title, content }) {
                 defaultValue="Description"
                 onChangeText={value => setFaecher3(value)}
             />
-            <Button title='"delete' onPress={deletePress} ></Button>
+            <Button title='"delete'  ></Button>
 
         </View>
     );

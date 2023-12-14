@@ -16,14 +16,7 @@ export async function addnote2(fach, note, setNoten, noten) {
         console.log(fach)
         if (el.fach === fach && note > 0 && note < 7) {
 
-            if (note < 4) {
-                alert("alarm Alarm")
-                ComponentDidMountalarm()
-            }
-            else if (note >= 5) {
-                alert("appplaus")
-                ComponentDidMountclap()
-            }
+
             el.note = el.geteilt * el.note + note;
             el.geteilt += 1
             console.log(el.note);

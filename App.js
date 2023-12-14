@@ -6,8 +6,15 @@ import NoteEntry from './componnets/NoteEntry';
 import { addnote2 } from './componnets/hinzufuegen';
 import { deleteFach } from './componnets/deletefach';
 import { AsyncStorage } from "react-native";
+import AnsichtEntry from './screens/Ansicht'
+import deleteEntry from './screens/deleteanischt'
+import AddEntry from './screens/ansichtadd'
+import CreateScreen from './screens/erstellendesign'
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { NavigationContainer } from "@react-navigation/native";
 
 
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   // create a function that saves your data asyncronously
@@ -41,52 +48,17 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <View style={styles.container2}>
-        <View style={styles.button}>
 
-        </View>
-        <View>
-          <TextInput id='title'
-            style={styles.login}
-            onChangeText={value => { setFaecher(value) }
-            }
-          />
-          <TextInput id='info'
-            style={styles.login}
-            defaultValue="Description"
-            onChangeText={value => setNote(value)}
-          />
-          <Button style={styles.button2} title='create' onPress={buttonPress}></Button>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="AnsichtScreen" component={AnsichtEntry} />
+        <Tab.Screen name="DeleteScreen" component={deleteEntry} />
+        <Tab.Screen name="Addscreen" component={AddEntry} />
+        <Tab.Screen name="CreateScreen" component={CreateScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
 
-          <TextInput id='title'
-            style={styles.login}
-            onChangeText={value => { setFaecher2(value) }
-            }
-          />
-          <TextInput id='info'
-            style={styles.login}
-            defaultValue="Description"
-            onChangeText={value => setNote2(value)}
-          />
-          <Button style={styles.button2} title='hinzfügen' onPress={Pressbutton}></Button>
-        </View>
 
-        <View style={styles.button}>
-
-          <TextInput id='info'
-            style={styles.login}
-            defaultValue="Description"
-            onChangeText={value => setFaecher3(value)}
-          />
-          <Button title='"delete' onPress={deletePress} ></Button>
-
-        </View>
-
-      </View>
-      {noten.map(t => <NoteEntry key={t.id} title={t.fach} content={t.note} />)}
-      <StatusBar style="auto" />
-    </View>
   );
 }
 

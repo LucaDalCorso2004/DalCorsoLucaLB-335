@@ -1,5 +1,5 @@
-import { View, Text, Button, StyleSheet } from 'react-native';
-export default function NoteEntry({ title, content }) {
+import { View, Text, Button, StyleSheet, TextInput } from 'react-native';
+export default function AddEntry({ title, content }) {
     return (
         <View>
             <TextInput id='title'
@@ -12,7 +12,7 @@ export default function NoteEntry({ title, content }) {
                 defaultValue="Description"
                 onChangeText={value => setNote2(value)}
             />
-            <Button style={styles.button2} title='hinzfügen' onPress={Pressbutton}></Button>
+            <Button style={styles.button2} title='hinzfügen' ></Button>
         </View>
     );
 }
