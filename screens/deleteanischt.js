@@ -1,5 +1,17 @@
 import { View, Text, Button, StyleSheet, TextInput } from 'react-native';
-export default function deleteEntry({ title, content }) {
+import { usenoten, useSetNoten } from "../Notencontext";
+import { useState } from "react";
+import { deleteFach } from '../componnets/deletefach';
+export default function DeleteEntry({ }) {
+    const [fach3, setFaecher3] = useState('');
+    const noten = usenoten();
+    const setNoten = useSetNoten();
+
+    const deletePress = () => {
+        deleteFach(setNoten, noten, fach3);
+    };
+
+
     return (
 
         <View style={styles.button}>
@@ -9,7 +21,7 @@ export default function deleteEntry({ title, content }) {
                 defaultValue="Description"
                 onChangeText={value => setFaecher3(value)}
             />
-            <Button title='"delete'  ></Button>
+            <Button title='"delete' onPress={deletePress} ></Button>
 
         </View>
     );

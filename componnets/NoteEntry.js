@@ -2,10 +2,9 @@ import { View, Text, Button, StyleSheet } from 'react-native';
 export default function NoteEntry({ title, content }) {
     return (
         <View >
-
             <Text>Fach{title}</Text>
             <Text>Note{content}</Text>
-
+            <Button title='graphe'></Button>
         </View>
     );
 }

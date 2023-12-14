@@ -12,7 +12,7 @@ import AddEntry from './screens/ansichtadd'
 import CreateScreen from './screens/erstellendesign'
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-
+import NoteContextWrapper from "./Notencontext";
 
 const Tab = createBottomTabNavigator();
 
@@ -50,12 +50,14 @@ export default function App() {
   return (
 
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="AnsichtScreen" component={AnsichtEntry} />
-        <Tab.Screen name="DeleteScreen" component={deleteEntry} />
-        <Tab.Screen name="Addscreen" component={AddEntry} />
-        <Tab.Screen name="CreateScreen" component={CreateScreen} />
-      </Tab.Navigator>
+      <NoteContextWrapper>
+        <Tab.Navigator>
+          <Tab.Screen name="AnsichtScreen" component={AnsichtEntry} />
+          <Tab.Screen name="DeleteScreen" component={deleteEntry} />
+          <Tab.Screen name="Addscreen" component={AddEntry} />
+          <Tab.Screen name="CreateScreen" component={CreateScreen} />
+        </Tab.Navigator>
+      </NoteContextWrapper>
     </NavigationContainer>
 
 

@@ -1,12 +1,13 @@
 import { View, Text, Button, StyleSheet, TextInput } from 'react-native';
-export default function AnsichtEntry({ title, content }) {
+import { usenoten, useSetNoten } from "../Notencontext";
+export default function AnsichtEntry({ }) {
+    const noten = usenoten();
+    const setNoten = useSetNoten();
+
+
     return (
-        <View style={styles.container2}>
-
-            <Text>Fach {title}</Text>
-            <Text>Note: {content}</Text>
-            <Button>Graph</Button>
-
+        <View >
+            {noten.map(t => <AnsichtEntry key={t.id} title={t.fach} content={t.note} />)}
         </View>
     );
 }
@@ -14,7 +15,7 @@ export default function AnsichtEntry({ title, content }) {
 const styles = StyleSheet.create({
     container2: {
         flex: 2,
-        backgroundColor: '#fff',
+        backgroundColor: '',
         alignItems: 'baseline',
     },
 });

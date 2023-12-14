@@ -29,7 +29,8 @@ export async function addnote2(fach, note, setNoten, noten) {
             console.log(el.note);
 
             console.log(el.geteilt);
-
+            el.Graphelist[el.note]
+            console.log(el.Graphelist)
 
             return el;
         }
