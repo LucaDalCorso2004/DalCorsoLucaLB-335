@@ -1,13 +1,14 @@
 import { View, Text, Button, StyleSheet, TextInput } from 'react-native';
-import { usenoten, useSetNoten } from "../Notencontext";
+import { usenoten } from "../Notencontext";
+import { NoteEntry } from '../componnets/NoteEntry'
 export default function AnsichtEntry({ }) {
     const noten = usenoten();
-    const setNoten = useSetNoten();
+
 
 
     return (
         <View >
-            {noten.map(t => <AnsichtEntry key={t.id} title={t.fach} content={t.note} />)}
+            {noten.map(t => <NoteEntry key={t.id} title={t.fach} content={t.note} />)}
         </View>
     );
 }

@@ -13,9 +13,9 @@ export async function addnote(fach, note, setNoten, noten) {
         }
         id += 1
         console.log(mynote)
-
-        setNoten([...noten, mynote]);
         console.log(noten)
+        setNoten([...noten, mynote]);
+
     }
 
 
