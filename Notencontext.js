@@ -6,14 +6,17 @@ export const SetNotenContext = createContext(null);
 export const usenoten = () => useContext(NotenContext);
 export const useSetNoten = () => useContext(SetNotenContext);
 
-export default function DataPointsProvider({ children }) {
+
+export default function DataPointsProvider({ children, children2 }) {
     const [noten, setNoten] = useState([]);
 
     return (
         <NotenContext.Provider value={noten}>
             <SetNotenContext.Provider value={setNoten}>
                 {children}
+
             </SetNotenContext.Provider>
         </NotenContext.Provider>
+
     );
 }

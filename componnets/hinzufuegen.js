@@ -4,6 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Audio } from 'expo-av';
 import { ComponentDidMountclap } from './clapaudio'
 import { ComponentDidMountalarm } from './alarmaudio'
+import { Graphe } from './Graphe';
 
 
 
@@ -29,7 +30,8 @@ export async function addnote2(fach, note, setNoten, noten) {
             console.log(el.note);
 
             console.log(el.geteilt);
-            el.Graphelist[el.note]
+            el.Graphelist.push(el.note);
+
             console.log(el.Graphelist)
 
             return el;

@@ -9,12 +9,13 @@ export async function addnote(fach, note, setNoten, noten) {
             fach: fach,
             note: note,
             geteilt: 1,
-            Graphelist: []
+            Graphelist: [note]
         }
         id += 1
         console.log(mynote)
         console.log(noten)
         setNoten([...noten, mynote]);
+
 
     }
 

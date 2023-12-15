@@ -12,40 +12,18 @@ import AddEntry from './screens/ansichtadd'
 import CreateScreen from './screens/erstellendesign'
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
+import { usenoten, useSetNoten } from "./Notencontext";
 import NoteContextWrapper from "./Notencontext";
 
 const Tab = createBottomTabNavigator();
 
 export default function App() {
-  // create a function that saves your data asyncronously
+
+  const noten = usenoten();
+  const setNoten = useSetNoten();
 
 
 
-  const [noten, setNoten] = useState([]);
-  const [fach, setFaecher] = useState('');
-  const [note, setNote] = useState('');
-  const [fach2, setFaecher2] = useState('');
-  const [note2, setNote2] = useState('');
-  const [fach3, setFaecher3] = useState('');
-  // fetch the data back asyncronously
-
-
-
-  const buttonPress = () => {
-    parseInt(note)
-    addnote(fach, note, setNoten, noten);
-
-  };
-
-  const deletePress = () => {
-    deleteFach(setNoten, noten, fach3);
-  };
-
-  const Pressbutton = () => {
-    let intnote = parseInt(note2)
-    addnote2(fach2, intnote, setNoten, noten)
-
-  }
 
   return (
 

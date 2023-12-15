@@ -14,6 +14,7 @@ export async function deleteFach(setNoten, prevTodos, fach) {
 
 
 
+
 };
 
 
