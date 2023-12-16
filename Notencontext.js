@@ -7,7 +7,7 @@ export const usenoten = () => useContext(NotenContext);
 export const useSetNoten = () => useContext(SetNotenContext);
 
 
-export default function DataPointsProvider({ children, children2 }) {
+export default function DataPointsProvider({ children }) {
     const [noten, setNoten] = useState([]);
 
     return (

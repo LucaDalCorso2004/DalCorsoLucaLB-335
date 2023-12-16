@@ -2,17 +2,18 @@ import { View, Text, Button, StyleSheet } from 'react-native';
 export function NoteEntry({ title, content }) {
     return (
         <View >
+
             <Text>Fach{title}</Text>
             <Text>Note{content}</Text>
-
+            <View style={styles.line}></View>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    container2: {
-        flex: 2,
-        backgroundColor: '#fff',
-        alignItems: 'baseline',
+
+    line: {
+        borderBottomWidth: 1,
+        borderBottomColor: 'black',
     },
 });

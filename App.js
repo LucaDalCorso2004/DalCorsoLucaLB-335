@@ -19,8 +19,7 @@ const Tab = createBottomTabNavigator();
 
 export default function App() {
 
-  const noten = usenoten();
-  const setNoten = useSetNoten();
+
 
 
 
@@ -30,10 +29,10 @@ export default function App() {
     <NavigationContainer>
       <NoteContextWrapper>
         <Tab.Navigator>
-          <Tab.Screen name="AnsichtScreen" component={AnsichtEntry} />
-          <Tab.Screen name="DeleteScreen" component={deleteEntry} />
-          <Tab.Screen name="Addscreen" component={AddEntry} />
-          <Tab.Screen name="CreateScreen" component={CreateScreen} />
+          <Tab.Screen name="Ansicht" component={AnsichtEntry} />
+          <Tab.Screen name="Löschen" component={deleteEntry} />
+          <Tab.Screen name="Hinzufügen" component={AddEntry} />
+          <Tab.Screen name="Erstellen" component={CreateScreen} />
         </Tab.Navigator>
       </NoteContextWrapper>
     </NavigationContainer>
