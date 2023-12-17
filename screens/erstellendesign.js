@@ -17,7 +17,7 @@ export default function CreateScreen({ }) {
 
 
     const buttonPress = () => {
-        let intnote = parseInt(note)
+        let intnote = parseFloat(note)
         addnote(fach, intnote, setNoten, noten);
         alert(fach + " erstellt")
         _storeData(noten)
@@ -53,12 +53,13 @@ export default function CreateScreen({ }) {
             <Text>Geben sie das Fach ein und die Note zum Fach,um es zuerstellen.</Text>
             <TextInput id='title'
                 style={styles.textbox}
+                placeholder="Fachname"
                 onChangeText={value => { setFaecher(value) }
                 }
             />
             <TextInput id='info'
                 style={styles.textbox}
-                defaultValue="Description"
+                placeholder="Note"
                 onChangeText={value => setNote(value)}
             />
             <Button //style={styles.button2} 

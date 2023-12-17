@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, Button } from 'react-native';
 import { Audio } from 'expo-av';
-
+// https://docs.expo.dev/versions/latest/sdk/audio/
 export async function playSoundbad() {
     try {
         console.log('Loading Sound');

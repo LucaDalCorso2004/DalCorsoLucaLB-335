@@ -68,7 +68,7 @@ export default function AddEntry({ }) {
     };
 
     const Pressbutton = () => {
-        let intnote = parseInt(note2)
+        let intnote = parseFloat(note2)
         addnote2(fach2, intnote, setNoten, noten);
         alert(note2 + " hinzugefügt beim Fach" + fach2)
         console.log("Vor dem Aufruf von _storeData", noten);
