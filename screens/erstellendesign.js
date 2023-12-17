@@ -12,6 +12,19 @@ export default function CreateScreen({ }) {
     const [note, setNote] = useState('');
     const noten = usenoten();
     const setNoten = useSetNoten();
+
+
+
+
+    const buttonPress = () => {
+        let intnote = parseInt(note)
+        addnote(fach, intnote, setNoten, noten);
+        alert(fach + " erstellt")
+        _storeData(noten)
+
+
+
+    };
     const _storeData = async (noten) => {
         try {
             console.log(noten)
@@ -32,18 +45,6 @@ export default function CreateScreen({ }) {
         } catch (error) {
             console.error('Fehler beim Speichern der Daten:', error);
         }
-    };
-
-
-
-    const buttonPress = () => {
-        let intnote = parseInt(note)
-        addnote(fach, intnote, setNoten, noten);
-        alert(fach + " erstellt")
-        _storeData(noten)
-
-
-
     };
 
     return (

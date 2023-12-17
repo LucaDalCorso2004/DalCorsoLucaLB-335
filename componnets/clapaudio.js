@@ -13,7 +13,7 @@ export async function playSoundgood() {
         await sound.playAsync();
         sound.setOnPlaybackStatusUpdate((status) => {
             if (status.positionMillis >= 5000) {
-                // Stop playback after 5 seconds
+
                 sound.stopAsync();
             }
         });
