@@ -1,1 +1,1 @@
-# um alle packages zu installiren mussen ins Terminal  'npm install' eingeben
+# um alle packages zu installieren mussen ins Terminal  'npm install' eingeben
