@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Button, StyleSheet, Text, View, TextInput } from 'react-native';
-import { addnote } from './componnets/erstellen';
-import NoteEntry from './componnets/NoteEntry';
-import { addnote2 } from './componnets/hinzufuegen';
-import { deleteFach } from './componnets/deletefach';
 import { AsyncStorage } from "react-native";
 import AnsichtEntry from './screens/Ansicht'
 import deleteEntry from './screens/deleteanischt'
@@ -12,50 +8,58 @@ import AddEntry from './screens/ansichtadd'
 import CreateScreen from './screens/erstellendesign'
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-
+import { usenoten, useSetNoten } from "./Notencontext";
+import NoteContextWrapper from "./Notencontext";
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Tab = createBottomTabNavigator();
 
 export default function App() {
-  // create a function that saves your data asyncronously
 
 
 
-  const [noten, setNoten] = useState([]);
-  const [fach, setFaecher] = useState('');
-  const [note, setNote] = useState('');
-  const [fach2, setFaecher2] = useState('');
-  const [note2, setNote2] = useState('');
-  const [fach3, setFaecher3] = useState('');
-  // fetch the data back asyncronously
 
 
-
-  const buttonPress = () => {
-    parseInt(note)
-    addnote(fach, note, setNoten, noten);
-
-  };
-
-  const deletePress = () => {
-    deleteFach(setNoten, noten, fach3);
-  };
-
-  const Pressbutton = () => {
-    let intnote = parseInt(note2)
-    addnote2(fach2, intnote, setNoten, noten)
-
-  }
 
   return (
 
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="AnsichtScreen" component={AnsichtEntry} />
-        <Tab.Screen name="DeleteScreen" component={deleteEntry} />
-        <Tab.Screen name="Addscreen" component={AddEntry} />
-        <Tab.Screen name="CreateScreen" component={CreateScreen} />
-      </Tab.Navigator>
+      <NoteContextWrapper>
+        <Tab.Navigator>
+          <Tab.Screen name="Ansicht" component={AnsichtEntry}
+            options={{
+              tabBarLabel: 'Ansicht',
+              tabBarIcon: ({ color, size }) => (
+                <MaterialCommunityIcons name="view-list" color={color} size={size} />
+              ),
+
+            }} />
+          <Tab.Screen name="Löschen" component={deleteEntry}
+            options={{
+              tabBarLabel: 'Löschen',
+              tabBarIcon: ({ color, size }) => (
+                <MaterialCommunityIcons name="delete" color={color} size={size} />
+              ),
+
+            }} />
+          <Tab.Screen name="Hinzufügen" component={AddEntry}
+            options={{
+              tabBarLabel: 'Hinzufügen',
+              tabBarIcon: ({ color, size }) => (
+                <MaterialCommunityIcons name="note-plus" color={color} size={size} />
+              ),
+
+            }} />
+          <Tab.Screen name="Erstellen" component={CreateScreen}
+            options={{
+              tabBarLabel: 'Hinzufügen',
+              tabBarIcon: ({ color, size }) => (
+                <MaterialCommunityIcons name="lead-pencil" color={color} size={size} />
+              ),
+
+            }} />
+        </Tab.Navigator>
+      </NoteContextWrapper>
     </NavigationContainer>
 
 

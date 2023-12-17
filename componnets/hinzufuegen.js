@@ -1,9 +1,10 @@
 import React, { Component, useEffect } from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { Audio } from 'expo-av';
-import { ComponentDidMountclap } from './clapaudio'
-import { ComponentDidMountalarm } from './alarmaudio'
+import { playSoundgood } from './clapaudio'
+import { playSoundbad } from './alarmaudio'
+
+import { Graphe } from './Graphe';
 
 
 
@@ -16,6 +17,12 @@ export async function addnote2(fach, note, setNoten, noten) {
         console.log(fach)
         if (el.fach === fach && note > 0 && note < 7) {
 
+            if (note >= 5) {
+                playSoundgood()
+            }
+            else if (note < 4) {
+                playSoundbad()
+            }
 
             el.note = el.geteilt * el.note + note;
             el.geteilt += 1
@@ -29,7 +36,9 @@ export async function addnote2(fach, note, setNoten, noten) {
             console.log(el.note);
 
             console.log(el.geteilt);
+            el.Graphelist.push(el.note);
 
+            console.log(el.Graphelist)
 
             return el;
         }

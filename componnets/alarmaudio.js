@@ -1,21 +1,46 @@
+import * as React from 'react';
+import { Text, View, StyleSheet, Button } from 'react-native';
 import { Audio } from 'expo-av';
 
-export function ComponentDidMountalarm() {
-    Audio.setAudioModeAsync({
-        allowsRecordingIOS: false,
+export async function playSoundbad() {
+    try {
+        console.log('Loading Sound');
+        const { sound } = await Audio.Sound.createAsync(
+            require('../assets/alarm.mp3')
+        );
 
-        playsInSilentModeIOS: true,
+        console.log('Playing Sound');
+        await sound.playAsync();
 
-        shouldDuckAndroid: true,
-        staysActiveInBackground: true,
-        playsThroughtEarpieceAndroid: true
-    });
-    this.sound = new Audio.Sound();
+        sound.setOnPlaybackStatusUpdate((status) => {
+            if (status.positionMillis >= 5000) {
 
-    const status = {
-        shouldPlay: false
+                sound.stopAsync();
+            }
+        });
+
+
+
+
+    } catch (error) {
+        console.error('Error playing sound', error);
     }
-    this.sound.loadAsync(require('../assets/alarm.mp3'), status, false)
-    this.sound.playAsync()
 }
+export default function App() {
+    const [sound, setSound] = React.useState();
+
+
+
+    React.useEffect(() => {
+        return sound
+            ? () => {
+                console.log('Unloading Sound');
+                sound.unloadAsync();
+            }
+            : undefined;
+    }, [sound]);
+
+
+}
+
 
