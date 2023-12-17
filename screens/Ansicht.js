@@ -78,8 +78,8 @@ export default function AnsichtEntry({ }) {
                 placeholder="Fachname"
                 onChangeText={setFaecher4}
             />
-            <Button title="Grpahe" onPress={Pressbuttongraphe}></Button>
-            <Button title="Graphen erstellen" onPress={Pressbuttongraphe2}></Button>
+            <Button title="Graphen die Gespeicherten" onPress={Pressbuttongraphe}></Button>
+            <Button title="Graphen die Erstellen" onPress={Pressbuttongraphe2}></Button>
 
             {chartData.length > 0 && <GrapheEntry data={chartData} />}
         </ScrollView>
