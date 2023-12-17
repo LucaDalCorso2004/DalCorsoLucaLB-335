@@ -7,9 +7,7 @@ export function Graphe(fach, noten) {
 
     const filteredNoten = noten.filter((el) => fach === el.fach);
 
-
-
-    const lineData = filteredNoten.map((el) => { // ChatGpt
+    const lineData = filteredNoten.map((el) => {
         const values = el.Graphelist.map(s => ({ value: s }));
         console.log(`Values for ${el.fach}:`, values);
         return values;

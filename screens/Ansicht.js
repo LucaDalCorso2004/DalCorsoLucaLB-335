@@ -17,34 +17,14 @@ import { FachEntry } from "../componnets/FachEntry";
 export default function AnsichtEntry({ }) {
     const [fach4, setFaecher4] = useState("");
     const [chartData, setChartData] = useState([]);
-    const [abgerufeneNoten, setAbgerufeneNoten] = useState([]); // Neuer State für abgerufene Daten
+    const [abgerufeneNoten, setAbgerufeneNoten] = useState([]);
     const noten = usenoten();
 
     useEffect(() => {
         fetchData();
     }, []);
 
-    const _storeData = async (noten) => {
-        try {
-            console.log(noten)
-            console.log("vordem speichern")
-            if (noten) {
-                const prevData = await AsyncStorage.getItem("notenData");
-                const prevNoten = prevData ? JSON.parse(prevData) : [];
 
-
-                const updatedNoten = [...prevNoten, ...noten];
-
-
-                await AsyncStorage.setItem("notenData", JSON.stringify(updatedNoten));
-                console.log("Nach dem Speichern", updatedNoten);
-            } else {
-                console.error("Fehler beim Speichern der Daten: noten ist undefined.");
-            }
-        } catch (error) {
-            console.error('Fehler beim Speichern der Daten:', error);
-        }
-    };
     const Pressbuttongraphe = () => {
         const graphData = Graphe(fach4, abgerufeneNoten);
         setChartData(graphData);

@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Button, StyleSheet, Text, View, TextInput } from 'react-native';
-import { addnote } from './componnets/erstellen';
-import NoteEntry from './componnets/NoteEntry';
-import { addnote2 } from './componnets/hinzufuegen';
-import { deleteFach } from './componnets/deletefach';
 import { AsyncStorage } from "react-native";
 import AnsichtEntry from './screens/Ansicht'
 import deleteEntry from './screens/deleteanischt'

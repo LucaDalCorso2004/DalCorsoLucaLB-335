@@ -4,7 +4,7 @@ import { usenoten, useSetNoten } from "../Notencontext";
 import { addnote2 } from '../componnets/hinzufuegen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { View, Text, Button, StyleSheet, TextInput, ScrollView } from 'react-native';
+import { View, Text, Button, StyleSheet, TextInput, ScrollView, Alert } from 'react-native';
 export default function AddEntry({ }) {
 
     const [fach2, setFaecher2] = useState('');
@@ -47,7 +47,7 @@ export default function AddEntry({ }) {
             if (value !== null) {
                 const parsedData = JSON.parse(value);
                 console.log("Abgerufene Daten:", parsedData);
-                setAbgerufeneNoten(parsedData); // Setze den neuen State
+                setAbgerufeneNoten(parsedData);
                 return parsedData;
             } else {
                 console.log("Keine Daten gefunden.");
@@ -70,6 +70,7 @@ export default function AddEntry({ }) {
     const Pressbutton = () => {
         let intnote = parseInt(note2)
         addnote2(fach2, intnote, setNoten, noten);
+        alert(note2 + " hinzugefügt beim Fach" + fach2)
         console.log("Vor dem Aufruf von _storeData", noten);
 
 

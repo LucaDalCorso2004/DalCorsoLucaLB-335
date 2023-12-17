@@ -12,12 +12,35 @@ export default function CreateScreen({ }) {
     const [note, setNote] = useState('');
     const noten = usenoten();
     const setNoten = useSetNoten();
+    const _storeData = async (noten) => {
+        try {
+            console.log(noten)
+            console.log("vordem speichern")
+            if (noten) {
+                const prevData = await AsyncStorage.getItem("notenData");
+                const prevNoten = prevData ? JSON.parse(prevData) : [];
+
+
+                const updatedNoten = [...prevNoten, ...noten];
+
+
+                await AsyncStorage.setItem("notenData", JSON.stringify(updatedNoten));
+                console.log("Nach dem Speichern", updatedNoten);
+            } else {
+                console.error("Fehler beim Speichern der Daten: noten ist undefined.");
+            }
+        } catch (error) {
+            console.error('Fehler beim Speichern der Daten:', error);
+        }
+    };
 
 
 
     const buttonPress = () => {
         let intnote = parseInt(note)
         addnote(fach, intnote, setNoten, noten);
+        alert(fach + " erstellt")
+        _storeData(noten)
 
 
 
